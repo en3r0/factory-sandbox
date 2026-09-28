@@ -8,6 +8,10 @@ def greet(name: str, shout: bool = False) -> str:
 
 
 if __name__ == "__main__":
-    import sys
+    import argparse
 
-    print(greet(sys.argv[1] if len(sys.argv) > 1 else "world"))
+    parser = argparse.ArgumentParser(description="Print a greeting.")
+    parser.add_argument("name", nargs="?", default="world", help="the name to greet")
+    parser.add_argument("--shout", action="store_true", help="print the greeting in uppercase")
+    args = parser.parse_args()
+    print(greet(args.name, shout=args.shout))
