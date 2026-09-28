@@ -1,9 +1,10 @@
 """Tiny sandbox module the factory uses to test its pipeline end to end."""
 
 
-def greet(name: str) -> str:
-    """Return a greeting for name."""
-    return f"Hello, {name}!"
+def greet(name: str, shout: bool = False) -> str:
+    """Return a greeting for name; uppercases it when shout is True."""
+    greeting = f"Hello, {name}!"
+    return greeting.upper() if shout else greeting
 
 
 if __name__ == "__main__":
